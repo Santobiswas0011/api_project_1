@@ -1,0 +1,34 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/regStyle.css">
+</head>
+
+<body>
+ <%-include('../include/navigation.ejs') %>
+  <h1>Login your account</h1>
+   <form action="/login" method="POST">
+      <input type="hidden" value="<%=csurf_token%>" name="_csrf">
+
+      <div>
+         <label>Email: </label><br>
+         <input type="email" name="Uemail" value="<%if(cookie_data.cookieData){%><%=cookie_data.cookieData.emailCookie %><%}%> " placeholder="Enter your Email" />
+     </div>
+      <div>
+         <label>Password: </label><br>
+         <input type="password" name="Upassword" value="<%if(cookie_data.cookieData){%><%=cookie_data.cookieData.passwordCookie %><%}%> " placeholder="Enter your Password" />
+     </div>
+     <div>
+        <input type="checkbox" class="form-check-input" name="checked">
+        <label for="form-check-lable">Remember me</label>
+     </div>
+     <% if(errorMessage){ %>
+        <h5 style="color:red;"><%=errorMessage %></h5>
+     <% } %>
+     <% if(error.length > 0){ %>
+      <% for(let err of error){ %>
+            <h5 style="color:red;"><%=err.msg %></h5>
+      <% } %>
+     <% } %>
+       <button class="btnStyle" type="submit">Login</button>
+   </form>
+
+<%-include('../include/footer.ejs') %>

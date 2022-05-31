@@ -1,0 +1,38 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/cartPage.css">
+</head>
+<body>
+    <%-include('../include/navigation.ejs') %>
+
+    <div id="body">
+         <h3 class="headStyle">My Cart</h3>
+         <hr>
+         
+         <%  if(productArry.length > 0){ %>
+            <table>
+                <tr>
+                    <th>Product Name  </th>
+                    <th>Product Price </th>
+                    <th>Product Desc </th>
+            
+                </tr>
+        
+                <% for(let data of productArry){ %>
+
+                           <tr>
+                 
+                           <p>Product : <%=data.p_title %></p>
+                           <p>Price : <%=data.p_price %> <i class="fa fa-inr" aria-hidden="true"></i></p>
+                           <p>Desc : <%=data.p_decs %></p>
+                            <img class="imageStyle" src="../../<%=data.prodImage %>">
+
+                        </tr>
+                        <%  } %>
+                    </table>
+        
+                <%  }else{ %>
+                    <p>Product not found</p>
+           <% } %>
+        
+
+    </div>

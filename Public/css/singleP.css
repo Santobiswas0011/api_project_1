@@ -1,0 +1,81 @@
+h1{
+   text-align: center;
+   margin:10px 0 15px 0;
+   text-decoration: underline;
+}
+.singleProductStyle{
+   width:800px;
+   height:400px;
+   background-color:#EFEF;
+   text-align: center;
+   margin: 50px auto;
+   border-radius: 5px;
+   box-shadow: 2px 2px 4px 2px #222;
+}
+
+.PDetails p{
+    font-size: 20px;
+    text-align: justify;
+}
+
+.imageStyle{
+   width: 100%;
+   height:350px;
+   padding: 15px;
+}
+
+.btnStyle{
+   width:210px;
+   background-color: yellowgreen;
+   color: black;
+   border: none;
+   padding: 3px;
+   font-size: 22px;
+   font-weight: bold;
+   border-radius: 5px;
+   box-shadow: 2px 2px 5px 1px black;
+   transition: 0.4s;
+   margin-left: -20px;
+}
+.btnStyle:hover{
+    background-color: yellow;
+}
+.btnStyle a{
+   text-decoration: none;
+   color: black;
+}
+
+@media(max-width:992px){
+    .singleProductStyle{
+       width:620px;
+    }
+    .btnStyle{
+      width:150px;
+      font-size: 18px;
+      margin-left: -100px;
+    }
+}
+
+@media(max-width:768px){
+    .singleProductStyle{
+       width:500px;
+    }
+    .btnStyle{
+      width:130px;
+      margin: 10px;
+    }
+}
+
+@media(max-width:575px){
+   .singleProductStyle{
+      width: 100%;
+      height: 110%;
+   }
+   .imageStyle{
+      padding:10px;
+   }
+   .btnStyle{
+      width:210px;
+      font-size: 22px;
+   }
+}

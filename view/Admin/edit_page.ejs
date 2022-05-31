@@ -1,0 +1,30 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/editPage.css">
+</head>
+
+<body>
+ <%-include('../include/navigation.ejs') %>
+  <h1>Edit Page</h1>
+   <form action="/editPage" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="<%=csurf_token%>" name="_csrf">
+
+       <div>
+           <input type="text" value="<%=data.p_title %>" name="product_title" />
+       </div>
+       <div>
+ 
+           <input type="text" value="<%=data.p_price %>" name="product_price" />
+       </div>
+       <div>
+     
+           <input type="text" value="<%=data.p_decs %>" name="product_decs" />
+       </div>
+       <div>
+           <input type="file" name="addImage" />
+       </div>
+       <input type="hidden" name="prod_id" value="<%=data._id %>" />
+       <input type="hidden" name="oldUrl" value="<%=data.prodImage %>">
+       <button type="submit">Submit Edit</button>
+   </form>
+
+<%-include('../include/footer.ejs') %>

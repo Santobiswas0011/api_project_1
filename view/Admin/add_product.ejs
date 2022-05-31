@@ -1,0 +1,35 @@
+ <%-include('../include/header.ejs') %>
+ <link rel="stylesheet" href="/css/addProduct.css">
+</head>
+
+<body>
+  <%-include('../include/navigation.ejs') %>
+   <h1>Add products</h1>
+    <form action="/product" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="<%=csurf_token%>" name="_csrf">
+        <div>
+            <label>Product Title : </label><br>
+            <input type="text" name="product_title" placeholder="Enter product title" />
+        </div>
+
+        <div>
+            <label>Product Price : </label><br>
+            <input type="text" name="product_price" placeholder="Enter product price" />
+        </div>
+        <div>
+            <label>Product Decs : </label><br>
+            <input type="text" name="product_decs" placeholder="Enter product desc" />
+        </div>
+        <div>
+            <input class="fileStyle" type="file" name="addImage" />
+            <p></p>
+            <% if(error.length > 0){ %>
+                <% for(let err of error){ %>
+                     <h5><%=err.msg %></h5>
+               <%  } %>
+             <% } %>
+        </div>
+        <button class="btnStyle" type="submit">Submit</button>
+    </form>
+
+<%-include('../include/footer.ejs') %>

@@ -1,0 +1,39 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/regStyle.css">
+</head>
+
+<body>
+ <%-include('../include/navigation.ejs') %>
+  <h1>Registration Form</h1>
+   <form action="/registrationData" method="POST">
+      <input type="hidden" value="<%=csurf_token%>" name="_csrf">
+
+      <div>
+         <label>First Name: </label><br>
+         <input type="text" placeholder="Enter your first name " name="firstName" required />
+     </div>
+      <div>
+         <label>Last Name: </label><br>
+         <input type="text" placeholder="Enter your last name " name="lastName" required />
+     </div>
+      <div>
+         <label>Email: </label><br>
+         <input type="email" placeholder="Enter your email" name="email" required />
+     </div>
+      <div>
+         <label>Password: </label><br>
+         <input type="password" placeholder="Enter your password " name="password" required />
+     </div>
+     <% if(errorMessage){ %>
+      <p><%=errorMessage %></p>
+   <% } %>
+     
+    <% if(error.length > 0){ %>
+          <% for(let err of error){ %>
+                <h5><%=err.msg %></h5>
+          <% } %>
+    <% } %>
+       <button class="btnStyle" type="submit">Register</button>
+   </form>
+
+<%-include('../include/footer.ejs') %>

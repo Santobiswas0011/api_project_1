@@ -1,0 +1,41 @@
+
+
+h1{
+    text-align: center;
+    text-shadow: 3px 2px 3px aquamarine;
+    text-decoration: underline;
+    margin-bottom: 25px;
+}
+form{
+    width: 350px;
+    margin: 0 auto;
+}
+input{
+    margin: 3px;
+    padding:2px;
+}
+
+.active{
+    border:1px solid aqua;
+ }
+
+ .cardStyle{
+     display:flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: row;
+     transition:.4s;
+ }
+ .cardStyle:hover{
+   transform: scale(1.06);
+ }
+ .imageStyle{
+     width: 230px;
+     height: 200px;
+ }
+
+@media(max-width:1000px){
+    .cartBody{
+        padding: 10px;
+    }
+}

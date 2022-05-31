@@ -1,0 +1,38 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+    <%-include('../include/navigation.ejs') %>
+    <h1>Product Details</h1>
+     <form action="/searchData" method="POST">
+        <div>
+          <input type="text" name="search_name" placeholder="Search by Product name ">
+          <button class="btnStyle" type="submit">Search</button>
+        </div>
+     </form>
+    <%  if(productArry.length > 0){ %>
+      <div class="row">
+        <% for(let x of productArry){ %>
+        <div class="col-sm-6 col-lg-4">
+
+          <div class="card m-2 cardStyle">
+            <div class="card-body cartBody">
+              <h5 class="card-title"><%=x.p_title %></h5>
+              <p class="card-text"><%=x.p_price %></p>
+              <p class="card-text"><%=x.p_decs %></p>
+              <a href="/shopProduct/<%=x._id %>" class="btn btn-secondary">Details</a>
+              <!-- <button class="btn btn-secondary">Details</button> -->
+            </div>
+            <div>
+               <img class="imageStyle" src="<%=x.prodImage %>" alt="">
+            </div>
+          </div>
+
+        </div>
+        <%  } %>
+      </div>
+        <%  }else{ %>
+            <p>Product not found</p>
+   <% } %>
+
+   <%-include('../include/footer.ejs') %>

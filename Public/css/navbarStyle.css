@@ -1,0 +1,32 @@
+.navbarStyle{
+   background-color: #333;
+   min-height:95px;
+}
+.nav-link{
+   color: white;
+   margin: 7px;
+   border-radius: 5px;
+   font-weight: bold;
+   font-size: 18px;
+   transition: .4s;
+}
+.nav-link:hover{
+   background-color: #2980b9;
+   color: white;
+   transform: scale(1.1);
+}
+.navbar-toggler{
+   color: white;
+}
+@media (max-width:992px){
+   .nav-link{
+       text-align: center;
+       background-color: orangered;
+   }
+   .nav-link:hover{
+      background-color: none;
+      color: white;
+      transform: scale(1);
+   }
+  
+}

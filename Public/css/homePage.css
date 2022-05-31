@@ -1,0 +1,11 @@
+h1{
+   font-size: 80px;
+   text-align: center;
+  font-style: italic;
+  margin: 84px;
+  color: green;
+  text-shadow: 3px 3px 2px aqua;
+}
+.active{
+   border: 1px solid seagreen;
+}

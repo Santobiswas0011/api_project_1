@@ -1,0 +1,30 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/singleP.css">
+</head>
+<body>
+    <%-include('../include/navigation.ejs') %>
+    <h1>Single Product</h1>
+   <div class="singleProductStyle">
+       <div class="row">
+           <div class=" col-sm-7 col-md-6  col-lg-8">
+            <img class="imageStyle" src="../../<%=data.prodImage %>">
+           </div>
+           <div class=" col-sm-5 col-md-6 col-lg-4">
+            <div class="card-body PDetails">
+                <p>Product : <%=data.p_title %></p>
+                <p>Price : <%=data.p_price %> <i class="fa fa-inr" aria-hidden="true"></i></p>
+                <p>Desc : <%=data.p_decs %></p>
+                <ul style="font-size: 22px;text-align: justify;margin-left: -30px;">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                    <i class="fa fa-star-o"></i>
+                    <p>107 ratings</p>
+                </ul>
+            </div>
+            <button class="btnStyle"><a href="/cart_product/<%=data._id %>">ADD TO CART</a></button>
+           </div>
+       </div>
+   </div>
+   <%-include('../include/footer.ejs') %>

@@ -1,0 +1,46 @@
+<%-include('../include/header.ejs') %>
+<link rel="stylesheet" href="/css/productData.css">
+</head>
+<body>
+    <%-include('../include/navigation.ejs') %>
+    <h1>Product Details</h1>
+    <%  if(productArry.length > 0){ %>
+    <table>
+        <tr>
+            <th>Product Name  </th>
+            <th>Product Price </th>
+            <th>Product Desc </th>
+            <th>Image</th>
+            <th>EditBtn</th>s
+            <th>Delete</th>
+            <th>delete</th>
+
+        </tr>
+
+        <% for(let x of productArry){ %>
+
+                <tr>
+                    <td><p><%=x.p_title %></p></td>
+                    <td><p><%=x.p_price %></p></td>
+                    <td><p><%=x.p_decs %></p></td>
+                    <td><img class="imageStyle" src="<%=x.prodImage %>" alt=""> </td>
+                    <td><a href="/editPage/<%=x._id %>">Edit</a></td>
+                    <td><a href="/deletePage/<%=x._id %>">Delete</a></td>
+                    <td>
+                        <form action="/delete" method="POST">
+                            <input type="hidden" value="<%=csurf_token%>" name="_csrf">
+
+                            <input type="hidden" name="del_id" value="<%=x._id %>">
+                            <button type="submit">delete</button>
+                        </form>
+                    </td>
+                   
+                </tr>
+                <%  } %>
+            </table>
+
+        <%  }else{ %>
+            <p>Product not found</p>
+   <% } %>
+
+   <%-include('../include/footer.ejs') %>
