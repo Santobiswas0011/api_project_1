@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const PORT = process.env.PORT || 2369;
-const hostName = '127.0.0.1';
+// const hostName = '127.0.0.1';
 const appServer = express();
 const cors=require('cors');
 
@@ -16,18 +16,17 @@ const cookieParser=require('cookie-parser');
 
 const userMOdel = require('./Model/authModel');
 
-const admin_router = require('./Router/admin_router');
-const users_router = require('./Router/user_router');
-const auth_router = require('./Router/authRouter');
-
-appServer.use(flash());
-
 const mongodb_session = require('connect-mongodb-session')(session);
 
 const storeValue = new mongodb_session({
        uri: 'mongodb+srv://santo:123456Sb@cluster0.annke.mongodb.net/MongooseProject',
        collection: 'my-session'
 });
+
+const admin_router = require('./Router/admin_router');
+const users_router = require('./Router/user_router');
+const auth_router = require('./Router/authRouter');
+
 
 appServer.use(session({ secret: 'secret-key', resave: false, saveUninitialized: false, store: storeValue }))
 
@@ -37,9 +36,12 @@ const mongoose = require('mongoose');
 
 // const csurfProtention=csurf();
 
+appServer.use(express.urlencoded({ extended: true }));
+
 appServer.use(cookieParser());
 
-appServer.use(express.urlencoded({ extended: true }));
+appServer.use(flash());
+
 
 appServer.set("view engine", "ejs");
 appServer.set("views", "view");
@@ -116,8 +118,8 @@ appServer.use((req, res) => {
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true })
        .then(() => {
               console.log("Database connected");
-              appServer.listen(PORT, hostName, () => {
-                     console.log(`Server is running at http://${hostName}:${PORT}`)
+              appServer.listen(PORT,() => {
+                     console.log(`Server is running at http://:${PORT}`)
               });
 
        }).catch((err) => {
