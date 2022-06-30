@@ -27,7 +27,6 @@ const admin_router = require('./Router/admin_router');
 const users_router = require('./Router/user_router');
 const auth_router = require('./Router/authRouter');
 
-
 appServer.use(session({ secret: 'secret-key', resave: false, saveUninitialized: false, store: storeValue }))
 
 const mongoose = require('mongoose');
@@ -41,7 +40,6 @@ appServer.use(express.urlencoded({ extended: true }));
 appServer.use(cookieParser());
 
 appServer.use(flash());
-
 
 appServer.set("view engine", "ejs");
 appServer.set("views", "view");
@@ -81,7 +79,6 @@ appServer.use((req,res,next)=>{
          res.setHeader('Access-Control-Allow-Headers','Content-type,Authorization');
          next();
 });
-
 appServer.use(cors());
 
 // session
